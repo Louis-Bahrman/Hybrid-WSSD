@@ -11,6 +11,14 @@
     --telecomRed: #C71748;
 }
 
+table {
+    margin: auto;
+    font-family: Poppins;
+    text-align: center;
+    table-layout: fixed;
+    width: 100%;
+}
+
 figcaption {
     text-align: center;
     font-family: Poppins;
