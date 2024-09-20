@@ -11,6 +11,10 @@
     --telecomRed: #C71748;
 }
 
+audio {
+  width:100%;
+}
+
 table {
     margin: auto;
     font-family: Poppins;

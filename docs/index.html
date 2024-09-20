@@ -17,7 +17,8 @@
         <p style="text-align:center">
         <b> Louis Bahrman<sup>1</sup>, Mathieu Fontaine<sup>1</sup>, Gaël Richard<sup>1</sup></b>
         </p>
-        <p style="text-align:center"> <sup>1</sup>LTCI, Télécom Paris, IP-Paris, France</p>
+        <p style="text-align:center"><sup>1</sup>LTCI, Télécom Paris, IP-Paris, France</p>
+        <p style="text-align:center">Submitted to ICASSP 2025</p>
         <hr>
       </div>
       <div class="center" style="max-width:600px">
@@ -28,62 +29,181 @@
     </header>
     <div class="center">
       <hr>
-    <figure>
-      <img class="figure" src="block_diagram.svg" alt="Block diagram">
-    </figure>
-    <section>
-      <h2>Abstract</h2>
-      <p>
-      This paper introduces a new training strategy to improve speech dereverberation systems using minimal acoustic information and reverberant (wet) speech. Most existing algorithms rely on paired dry/wet data, which is difficult to obtain, or
-on target metrics that may not adequately capture reverberation
-characteristics and can lead to poor results on non-target
-metrics. Our approach uses limited acoustic information, like the
-reverberation time (RT60), to train a dereverberation system.
-The system’s output is resynthesized using a generated room
-impulse response and compared with the original reverberant
-speech, providing a novel reverberation matching loss replacing
-the standard target metrics. During inference, only the trained
-dereverberation model is used. Experimental results demonstrate
-that our method achieves more consistent performance across
-various objective metrics used in speech dereverberation than
-the state-of-the-art.
-      </p>
-    </section>
-    <section>
-      <h2>Audio examples</h2>
-      <p>WS denotes Weak supervision, by RT60 (proposed) or by SRMR (Baseline)</p>
-      <table>
-        <tbody>
-          <tr>
-            <td></td>
-            <td>Wet input</td>
-            <td>Ground truth</td>
-            <td>FSN (proposed)</td>
-            <td>FSN</td>
-            <td>BiLSTM (proposed)</td>
-            <td>BiLSTM</td>
-            <td>Baseline</td>
-          </tr>
-          <tr>
-            <td>WS</td>
-            <td></td>
-            <td></td>
-            <td>&#x2717;</td>
-            <td>&#x2713;</td>
-            <td>&#x2717;</td>
-            <td>&#x2713;</td>
-            <td>&#x2713;</td>
-        </tbody>
-      </table>
-    </section>
-    <section>
+      <figure>
+        <img class="figure" src="block_diagram.svg" alt="Block diagram">
+      </figure>
+      <section>
+        <h2>Abstract</h2>
+        <p>
+        This paper introduces a new training strategy to improve speech dereverberation systems using minimal acoustic information and reverberant (wet) speech.
+        Most existing algorithms rely on paired dry/wet data, which is difficult to obtain, or
+        on target metrics that may not adequately capture reverberation
+        characteristics and can lead to poor results on non-target
+        metrics. Our approach uses limited acoustic information, like the
+        reverberation time (RT60), to train a dereverberation system.
+        The system’s output is resynthesized using a generated room
+        impulse response and compared with the original reverberant
+        speech, providing a novel reverberation matching loss replacing
+        the standard target metrics. During inference, only the trained
+        dereverberation model is used. Experimental results demonstrate
+        that our method achieves more consistent performance across
+        various objective metrics used in speech dereverberation than
+        the state-of-the-art.
+        </p>
+      </section>
+      <section>
+        <h2>Audio examples</h2>
+        <p>
+        Examples are randomly drawn among several RT60 classes
+        WS denotes Weak supervision, by RT60 (proposed) or by SRMR (Baseline).
+        </p>
+        <table>
+          <tbody>
+            <tr>
+              <td></td>
+              <td>Wet input</td>
+              <td>Ground truth</td>
+              <td>FSN (proposed)</td>
+              <td>FSN</td>
+              <td>BiLSTM (proposed)</td>
+              <td>BiLSTM</td>
+              <td>Baseline</td>
+            </tr>
+            <tr>
+              <td>WS</td>
+              <td></td>
+              <td></td>
+              <td>&#x2717;</td>
+              <td>&#x2713;</td>
+              <td>&#x2717;</td>
+              <td>&#x2713;</td>
+              <td>&#x2713;</td>
+            </tr>
+            <tr>
+              <td>RT60=0.14</td>
+              <td>
+                <audio controls="">
+                  <source src="audios/0_wet.ogg" type="audio/ogg"/>
+                </audio>
+              </td>
+              <td>
+                <audio controls="">
+                  <source src="audios/0_dry.ogg" type="audio/ogg"/>
+                </audio>
+              </td>
+              <td>
+                <audio controls="">
+                  <source src="audios/0_FSN_rt60.ogg" type="audio/ogg"/>
+                </audio>
+              </td>
+              <td>
+                <audio controls="">
+                  <source src="audios/0_FSN_cRM.ogg" type="audio/ogg"/>
+                </audio>
+              </td>
+              <td>
+                <audio controls="">
+                  <source src="audios/0_bilstm_rt60.ogg" type="audio/ogg"/>
+                </audio>
+              </td>
+              <td>
+                <audio controls="">
+                  <source src="audios/0_bilstm_S.ogg" type="audio/ogg"/>
+                </audio>
+              </td>
+              <td>
+                <audio controls="">
+                  <source src="audios/0_baseline.ogg" type="audio/ogg"/>
+                </audio>
+              </td>
+            </tr>
+            <tr>
+              <td>RT60=0.55</td>
+              <td>
+                <audio controls="">
+                  <source src="audios/1_wet.ogg" type="audio/ogg"/>
+                </audio>
+              </td>
+              <td>
+                <audio controls="">
+                  <source src="audios/1_dry.ogg" type="audio/ogg"/>
+                </audio>
+              </td>
+              <td>
+                <audio controls="">
+                  <source src="audios/1_FSN_rt60.ogg" type="audio/ogg"/>
+                </audio>
+              </td>
+              <td>
+                <audio controls="">
+                  <source src="audios/1_FSN_cRM.ogg" type="audio/ogg"/>
+                </audio>
+              </td>
+              <td>
+                <audio controls="">
+                  <source src="audios/1_bilstm_rt60.ogg" type="audio/ogg"/>
+                </audio>
+              </td>
+              <td>
+                <audio controls="">
+                  <source src="audios/1_bilstm_S.ogg" type="audio/ogg"/>
+                </audio>
+              </td>
+              <td>
+                <audio controls="">
+                  <source src="audios/1_baseline.ogg" type="audio/ogg"/>
+                </audio>
+              </td>
+            </tr>
+            <tr>
+              <td>RT60=0.85</td>
+              <td>
+                <audio controls="">
+                  <source src="audios/2_wet.ogg" type="audio/ogg"/>
+                </audio>
+              </td>
+              <td>
+                <audio controls="">
+                  <source src="audios/2_dry.ogg" type="audio/ogg"/>
+                </audio>
+              </td>
+              <td>
+                <audio controls="">
+                  <source src="audios/2_FSN_rt60.ogg" type="audio/ogg"/>
+                </audio>
+              </td>
+              <td>
+                <audio controls="">
+                  <source src="audios/2_FSN_cRM.ogg" type="audio/ogg"/>
+                </audio>
+              </td>
+              <td>
+                <audio controls="">
+                  <source src="audios/2_bilstm_rt60.ogg" type="audio/ogg"/>
+                </audio>
+              </td>
+              <td>
+                <audio controls="">
+                  <source src="audios/2_bilstm_S.ogg" type="audio/ogg"/>
+                </audio>
+              </td>
+              <td>
+                <audio controls="">
+                  <source src="audios/2_baseline.ogg" type="audio/ogg"/>
+                </audio>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section>
         <h2>Citing this work</h2>
         <p>
         If you use this work in your research or business, please cite it using the following BibTeX entry:
         </p>
         <pre>
         <code>
-        todo
+       To be released upon acceptance 
         </code>
         </pre>
       </section>
