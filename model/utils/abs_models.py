@@ -316,7 +316,7 @@ class AbsSpeechOrReverbModel(ABC, FirstLevelModule):
                 monitor_mode = min
             ckpt_path = get_best_checkpoint(ckpt_path, monitor_mode=monitor_mode)
             print(f"Best_checkpoint found {ckpt_path}")
-        state_dict = torch.load(ckpt_path)["state_dict"]
+        state_dict = torch.load(ckpt_path, weights_only=False)["state_dict"]
         new_dict = OrderedDict()
         for k, v in state_dict.items():
             if self.MODEL_TYPE == ModelType.DRY_SPEECH and k.startswith("speech_model."):

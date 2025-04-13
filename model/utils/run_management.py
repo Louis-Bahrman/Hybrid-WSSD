@@ -43,7 +43,7 @@ def get_latest_checkpoint(base_dir):
 
 def get_best_checkpoint(base_dir, monitor_mode):
     latest_checkpoint = get_latest_checkpoint(base_dir)
-    d = torch.load(latest_checkpoint)
+    d = torch.load(latest_checkpoint, weights_only=False)
     model_checkpoint_callbacks = {k: v for k, v in d["callbacks"].items() if "ModelCheckpoint" in k}
     if len(model_checkpoint_callbacks) > 1:
         raise RuntimeError("Not that many callbacks expected")
