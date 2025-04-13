@@ -1,3 +1,4 @@
+*logs/
 *.ckpt
 slurm/
 .virtual_documents
