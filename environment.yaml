@@ -59,7 +59,7 @@ dependencies:
       - frozenlist==1.5.0
       - fsspec==2025.3.2
       - g2p-en==2.1.0
-      - gammatone==1.0
+      - git+https://github.com/detly/gammatone
       - grpcio==1.71.0
       - h5py==3.13.0
       - huggingface-hub==0.30.1
@@ -112,7 +112,7 @@ dependencies:
       - packaging==24.2
       - pandas==2.2.3
       - pesq==0.0.4
-      - pillow==11.2.0
+      - pillow==11.2.1
       - platformdirs==4.3.7
       - pooch==1.8.2
       - propcache==0.3.1
@@ -141,8 +141,8 @@ dependencies:
       - six==1.17.0
       - soundfile==0.13.1
       - speechbrain==1.0.2
-      - srmrpy==1.0
       - sympy==1.13.1
+      - git+https://github.com/jfsantos/SRMRpy
       - tensorboard==2.19.0
       - tensorboard-data-server==0.7.2
       - threadpoolctl==3.6.0
