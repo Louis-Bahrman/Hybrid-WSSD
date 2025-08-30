@@ -1,212 +1,212 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title> Hybrid WSSD </title>
-    <meta encoding="utf-8">
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  </head>
-  <body>
-    <header>
-      <div id="title_authors" class="titlecenter"> 
-        <h1> A hybrid model for weakly supervised speech dereverberation </h1>
-      </div>
-      <div class="center">
-        <p style="text-align:center">
-        <b> Louis Bahrman, Mathieu Fontaine, Gaël Richard</b>
-        </p>
-        <p style="text-align:center">LTCI, Télécom Paris, IP-Paris, France</p>
-        <p style="text-align:center">ICASSP 2025</p>
-        <hr>
-      </div>
-      <div class="center" style="max-width:600px">
-        <div class="container">
-          <a href="https://www.doi.org/10.1109/ICASSP49660.2025.10888095">Paper</a> &nbsp;
-          <a href="https://doi.org/10.48550/arXiv.2502.06839">Arxiv</a> &nbsp;
-          <a href="https://hal.science/hal-04931672/">HAL</a> &nbsp;
-          <a href="https://www.github.com/Louis-Bahrman/Hybrid-WSSD">Code</a> &nbsp;
-          <a href="poster.pdf" target="_blank">Poster</a>
-        </div>
-      </div>
-    </header>
-    <div class="center">
-      <hr>
-      <figure>
-        <img class="figure" src="block_diagram.svg" alt="Block diagram">
-      </figure>
-      <section>
-        <h2>Abstract</h2>
-        <p>
-        This paper introduces a new training strategy to improve speech dereverberation systems using minimal acoustic information and reverberant (wet) speech.
-        Most existing algorithms rely on paired dry/wet data, which is difficult to obtain, or
-        on target metrics that may not adequately capture reverberation
-        characteristics and can lead to poor results on non-target
-        metrics. Our approach uses limited acoustic information, like the
-        reverberation time (RT60), to train a dereverberation system.
-        The system’s output is resynthesized using a generated room
-        impulse response and compared with the original reverberant
-        speech, providing a novel reverberation matching loss replacing
-        the standard target metrics. During inference, only the trained
-        dereverberation model is used. Experimental results demonstrate
-        that our method achieves more consistent performance across
-        various objective metrics used in speech dereverberation than
-        the state-of-the-art.
-        </p>
-      </section>
-      <section>
-        <h2>Audio examples</h2>
-        <p>
-        Examples are randomly drawn among several RT60 classes.
-        'WS' denotes Weak supervision, by RT60 (proposed) or by SRMR (Baseline).
-        Listening with headphones is recommended, as our proposed approaches mostly remove the late reverberation.
-        </p>
-        <table>
-          <tbody>
-            <tr>
-              <td></td>
-              <td>Wet input</td>
-              <td>Ground truth</td>
-              <td>FSN (proposed)</td>
-              <td>FSN</td>
-              <td>BiLSTM (proposed)</td>
-              <td>BiLSTM</td>
-              <td>Baseline</td>
-            </tr>
-            <tr>
-              <td>WS</td>
-              <td></td>
-              <td></td>
-              <td>&#x2713;</td>
-              <td>&#x2717;</td>
-              <td>&#x2713;</td>
-              <td>&#x2717;</td>
-              <td>&#x2713;</td>
-            </tr>
-            <tr>
-              <td>RT60=0.14</td>
-              <td>
-                <audio controls="">
-                  <source src="audios/0_wet.ogg" type="audio/ogg"/>
-                </audio>
-              </td>
-              <td>
-                <audio controls="">
-                  <source src="audios/0_dry.ogg" type="audio/ogg"/>
-                </audio>
-              </td>
-              <td>
-                <audio controls="">
-                  <source src="audios/0_FSN_rt60.ogg" type="audio/ogg"/>
-                </audio>
-              </td>
-              <td>
-                <audio controls="">
-                  <source src="audios/0_FSN_cRM.ogg" type="audio/ogg"/>
-                </audio>
-              </td>
-              <td>
-                <audio controls="">
-                  <source src="audios/0_bilstm_rt60.ogg" type="audio/ogg"/>
-                </audio>
-              </td>
-              <td>
-                <audio controls="">
-                  <source src="audios/0_bilstm_S.ogg" type="audio/ogg"/>
-                </audio>
-              </td>
-              <td>
-                <audio controls="">
-                  <source src="audios/0_baseline.ogg" type="audio/ogg"/>
-                </audio>
-              </td>
-            </tr>
-            <tr>
-              <td>RT60=0.55</td>
-              <td>
-                <audio controls="">
-                  <source src="audios/1_wet.ogg" type="audio/ogg"/>
-                </audio>
-              </td>
-              <td>
-                <audio controls="">
-                  <source src="audios/1_dry.ogg" type="audio/ogg"/>
-                </audio>
-              </td>
-              <td>
-                <audio controls="">
-                  <source src="audios/1_FSN_rt60.ogg" type="audio/ogg"/>
-                </audio>
-              </td>
-              <td>
-                <audio controls="">
-                  <source src="audios/1_FSN_cRM.ogg" type="audio/ogg"/>
-                </audio>
-              </td>
-              <td>
-                <audio controls="">
-                  <source src="audios/1_bilstm_rt60.ogg" type="audio/ogg"/>
-                </audio>
-              </td>
-              <td>
-                <audio controls="">
-                  <source src="audios/1_bilstm_S.ogg" type="audio/ogg"/>
-                </audio>
-              </td>
-              <td>
-                <audio controls="">
-                  <source src="audios/1_baseline.ogg" type="audio/ogg"/>
-                </audio>
-              </td>
-            </tr>
-            <tr>
-              <td>RT60=0.85</td>
-              <td>
-                <audio controls="">
-                  <source src="audios/2_wet.ogg" type="audio/ogg"/>
-                </audio>
-              </td>
-              <td>
-                <audio controls="">
-                  <source src="audios/2_dry.ogg" type="audio/ogg"/>
-                </audio>
-              </td>
-              <td>
-                <audio controls="">
-                  <source src="audios/2_FSN_rt60.ogg" type="audio/ogg"/>
-                </audio>
-              </td>
-              <td>
-                <audio controls="">
-                  <source src="audios/2_FSN_cRM.ogg" type="audio/ogg"/>
-                </audio>
-              </td>
-              <td>
-                <audio controls="">
-                  <source src="audios/2_bilstm_rt60.ogg" type="audio/ogg"/>
-                </audio>
-              </td>
-              <td>
-                <audio controls="">
-                  <source src="audios/2_bilstm_S.ogg" type="audio/ogg"/>
-                </audio>
-              </td>
-              <td>
-                <audio controls="">
-                  <source src="audios/2_baseline.ogg" type="audio/ogg"/>
-                </audio>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
-      <section>
-        <h2>Citing this work</h2>
-        <p>
-        If you use this work in your research or business, please cite it using the following BibTeX entry:
-        </p>
-        <pre>
+<html lang="en">
+    <head>
+        <title> Hybrid WSSD </title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <header>
+            <div id="title_authors" class="titlecenter"> 
+                <h1> A hybrid model for weakly supervised speech dereverberation </h1>
+            </div>
+            <div class="center">
+                <p style="text-align:center">
+                <b> Louis Bahrman, Mathieu Fontaine, Gaël Richard</b>
+                </p>
+                <p style="text-align:center">LTCI, Télécom Paris, IP-Paris, France</p>
+                <p style="text-align:center">ICASSP 2025</p>
+                <hr>
+            </div>
+            <div class="center" style="max-width:600px">
+                <div class="container">
+                    <a href="https://www.doi.org/10.1109/ICASSP49660.2025.10888095">Paper</a> &nbsp;
+                    <a href="https://doi.org/10.48550/arXiv.2502.06839">Arxiv</a> &nbsp;
+                    <a href="https://hal.science/hal-04931672/">HAL</a> &nbsp;
+                    <a href="https://www.github.com/Louis-Bahrman/Hybrid-WSSD">Code</a> &nbsp;
+                    <a href="poster.pdf" target="_blank">Poster</a>
+                </div>
+            </div>
+        </header>
+        <div class="center">
+            <hr>
+            <figure>
+                <img class="figure" src="block_diagram.svg" alt="Block diagram">
+            </figure>
+            <section>
+                <h2>Abstract</h2>
+                <p>
+                This paper introduces a new training strategy to improve speech dereverberation systems using minimal acoustic information and reverberant (wet) speech.
+                Most existing algorithms rely on paired dry/wet data, which is difficult to obtain, or
+                on target metrics that may not adequately capture reverberation
+                characteristics and can lead to poor results on non-target
+                metrics. Our approach uses limited acoustic information, like the
+                reverberation time (RT60), to train a dereverberation system.
+                The system’s output is resynthesized using a generated room
+                impulse response and compared with the original reverberant
+                speech, providing a novel reverberation matching loss replacing
+                the standard target metrics. During inference, only the trained
+                dereverberation model is used. Experimental results demonstrate
+                that our method achieves more consistent performance across
+                various objective metrics used in speech dereverberation than
+                the state-of-the-art.
+                </p>
+            </section>
+            <section>
+                <h2>Audio examples</h2>
+                <p>
+                Examples are randomly drawn among several RT60 classes.
+                'WS' denotes Weak supervision, by RT60 (proposed) or by SRMR (Baseline).
+                Listening with headphones is recommended, as our proposed approaches mostly remove the late reverberation.
+                </p>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td>Wet input</td>
+                            <td>Ground truth</td>
+                            <td>FSN (proposed)</td>
+                            <td>FSN</td>
+                            <td>BiLSTM (proposed)</td>
+                            <td>BiLSTM</td>
+                            <td>Baseline</td>
+                        </tr>
+                        <tr>
+                            <td>WS</td>
+                            <td></td>
+                            <td></td>
+                            <td>&#x2713;</td>
+                            <td>&#x2717;</td>
+                            <td>&#x2713;</td>
+                            <td>&#x2717;</td>
+                            <td>&#x2713;</td>
+                        </tr>
+                        <tr>
+                            <td>RT60=0.14</td>
+                            <td>
+                                <audio controls="">
+                                    <source src="audios/0_wet.ogg" type="audio/ogg"/>
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls="">
+                                    <source src="audios/0_dry.ogg" type="audio/ogg"/>
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls="">
+                                    <source src="audios/0_FSN_rt60.ogg" type="audio/ogg"/>
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls="">
+                                    <source src="audios/0_FSN_cRM.ogg" type="audio/ogg"/>
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls="">
+                                    <source src="audios/0_bilstm_rt60.ogg" type="audio/ogg"/>
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls="">
+                                    <source src="audios/0_bilstm_S.ogg" type="audio/ogg"/>
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls="">
+                                    <source src="audios/0_baseline.ogg" type="audio/ogg"/>
+                                </audio>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>RT60=0.55</td>
+                            <td>
+                                <audio controls="">
+                                    <source src="audios/1_wet.ogg" type="audio/ogg"/>
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls="">
+                                    <source src="audios/1_dry.ogg" type="audio/ogg"/>
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls="">
+                                    <source src="audios/1_FSN_rt60.ogg" type="audio/ogg"/>
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls="">
+                                    <source src="audios/1_FSN_cRM.ogg" type="audio/ogg"/>
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls="">
+                                    <source src="audios/1_bilstm_rt60.ogg" type="audio/ogg"/>
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls="">
+                                    <source src="audios/1_bilstm_S.ogg" type="audio/ogg"/>
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls="">
+                                    <source src="audios/1_baseline.ogg" type="audio/ogg"/>
+                                </audio>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>RT60=0.85</td>
+                            <td>
+                                <audio controls="">
+                                    <source src="audios/2_wet.ogg" type="audio/ogg"/>
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls="">
+                                    <source src="audios/2_dry.ogg" type="audio/ogg"/>
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls="">
+                                    <source src="audios/2_FSN_rt60.ogg" type="audio/ogg"/>
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls="">
+                                    <source src="audios/2_FSN_cRM.ogg" type="audio/ogg"/>
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls="">
+                                    <source src="audios/2_bilstm_rt60.ogg" type="audio/ogg"/>
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls="">
+                                    <source src="audios/2_bilstm_S.ogg" type="audio/ogg"/>
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls="">
+                                    <source src="audios/2_baseline.ogg" type="audio/ogg"/>
+                                </audio>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <section>
+                <h2>Citing this work</h2>
+                <p>
+                If you use this work in your research or business, please cite it using the following BibTeX entry:
+                </p>
+                <pre>
         <code>
 @INPROCEEDINGS{10888095,
   author={Bahrman, Louis and Fontaine, Mathieu and Richard, Gaël},
@@ -216,7 +216,8 @@
   pages={1-5},
   doi={10.1109/ICASSP49660.2025.10888095}}
         </code>
-        </pre>
-      </section>
-  </body>
+                </pre>
+            </section>
+        </div>
+    </body>
 </html>
